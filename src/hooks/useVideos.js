@@ -6,7 +6,9 @@ const useVideos = (defaultSearchTerm) => {
     const [videos, setVideos] = useState([]);
 
     useEffect(() => {
-        search(defaultSearchTerm);
+        search(defaultSearchTerm).catch((error) => {
+            console.log(error);
+        });
     }, [defaultSearchTerm]);
 
     const search = async (term) => {
@@ -17,8 +19,7 @@ const useVideos = (defaultSearchTerm) => {
         });
 
         setVideos(response.data.items);
-        console.log(response.data.items);
-
+        // console.log(response.data.items);
     };
 
     return [videos, search];
