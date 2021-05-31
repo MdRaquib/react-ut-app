@@ -14,7 +14,7 @@ const App = () => {
 
     return(
         <div className="ui container">
-            <SearchBar onFormSubmit={() => {search().catch((error) => { console.log(error)})}}/>
+            <SearchBar onFormSubmit={(term) => {search(term).catch((error) => { console.log(error)})}}/>
             <div className="ui grid">
                 <div className="ui row">
                     <div className="eleven wide column">
